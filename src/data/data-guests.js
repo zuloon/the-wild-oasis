@@ -2,7 +2,7 @@
 
 export const guests = [
   {
-    
+
     fullName: 'Jonas Schmedtmann',
     email: 'hello@jonas.io',
     nationality: 'Portugal',
@@ -45,14 +45,14 @@ export const guests = [
     countryFlag: 'https://flagcdn.com/us.svg',
   },
 
-  
-  {
-    fullName: 'Emma Watson',
-    email: 'emma@gmail.com',
-    nationality: 'United Kingdom',
-    nationalID: '1234578901',
-    countryFlag: 'https://flagcdn.com/gb.svg',
-  },
+
+  // {
+  //   fullName: 'Emma Watson',
+  //   email: 'emma@gmail.com',
+  //   nationality: 'United Kingdom',
+  //   nationalID: '1234578901',
+  //   countryFlag: 'https://flagcdn.com/gb.svg',
+  // },
   {
     fullName: 'Mohammed Ali',
     email: 'mohammedali@yahoo.com',
