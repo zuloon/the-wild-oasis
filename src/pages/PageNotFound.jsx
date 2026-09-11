@@ -1,7 +1,8 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-import { useMoveBack } from "../hooks/useMoveBack";
 import Heading from "../ui/Heading";
+import Button from "../ui/Button";
 
 const StyledPageNotFound = styled.main`
   height: 100vh;
@@ -27,8 +28,22 @@ const Box = styled.div`
   }
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+`;
+
 function PageNotFound() {
-  const moveBack = useMoveBack();
+  const navigate = useNavigate();
+
+  function handleMoveBack() {
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate("/dashboard", { replace: true });
+    }
+  }
 
   return (
     <StyledPageNotFound>
@@ -36,9 +51,18 @@ function PageNotFound() {
         <Heading as="h1">
           The page you are looking for could not be found 😢
         </Heading>
-        <button onClick={moveBack} size="large">
-          &larr; Go back
-        </button>
+        <ButtonGroup>
+          <Button onClick={handleMoveBack} variation="secondary" size="large">
+            &larr; Go back
+          </Button>
+          <Button
+            onClick={() => navigate("/dashboard", { replace: true })}
+            variation="primary"
+            size="large"
+          >
+            Go to dashboard &rarr;
+          </Button>
+        </ButtonGroup>
       </Box>
     </StyledPageNotFound>
   );
